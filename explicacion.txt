@@ -1,0 +1,71 @@
+Hola comunidad de Github Aqui les traigo una asignación que realice en la cual utilizo variedad de bases de datos gracias a Python, me pareció interesante compartirlo
+ya que muestra el poder de como los datos se pueden transferir desde distintos medios, tuve que cumplir con variedad de requisitos para realizar el trabajo correctamente.
+
+
+Les explicaré que se realizo en cada en el codigo:
+
+SQL SERVER 1#
+Realice un query sencillo en SQL Server Magnament Studio en la tabla sales.customers con una sentencia WHERE para determinar cuales clientes viven en el estado
+de New York.
+
+
+SQL SERVER 2#
+Importo varias de las librerias con las que trabajaria en el proyecto, luego de esto realizo un try para hacer la conexión de python con SQL, como la conexión, especificando el driver en este caso SQL server,
+el server el cual es la instancia por la cual nos estamos conectando y al final como la connexion era con la autenticación de windows pues se coloca ''trusted connection''
+
+
+SQL SERVER 2.2#
+Luego en Python luego de haber importado las liberias que utilizaria para trabajar y haber realizado la conexión a SQL correctamente, utilizando pandas hice la consulta sql y lo cargue en un dataframe
+y luego con la función df.head() imprimo los 5 primeros del dataframe.
+
+REDIS 3#
+Con redis anteriormente importado, realice la conexión la cual es bastante sencilla ya que solo debemos colocar el host, el puerto que esta utilizando redis
+y el indice en el cual vamos a trabajar, que en este caso por el mandato era el 8.
+Con la función de pyarrow ''serializamos'' nuestro dataframe para poder almacenarlo correctamente en redis.
+Como se ejecuto correctamente la consola nos devolvio true.
+
+REDIS 4#
+Con keys * podemos confirmar desde REDIS que la key ClientesNY se ha guardado correctamente y para hacer el proximo mandato hice un get en la misma consola de Redis
+Todos esos simbolos que salen son los datos serializados dentro de redis, así que nuestros datos se guardaron correctamente.
+
+REDIS 5#
+Con un set, cambie el valor de la Key de clientesny a "ahora ya no tiene la info anterior" ya que era parte del mandato, luego realice un get en consola
+para confirmar el cambio.
+
+REDIS 5.2#
+Luego como parte del mandato, realice el mismo get desde python y me imprimo lo mismo, confirmando asi su cambio.
+
+MongoDB 6#
+Anteriormente ya tenia instalado MongoDB en mi computadora por lo cual instalar pymongo fue más sencillo, solamente tuve que instalarlo con !pip3 install pymongo
+y luego importe el pymongo y desde pymongo importe el cliente de mongo
+Luego coloce el pymongo.__version__ para comprobar que la instalación se hizo correctamente.
+
+MongoDB 6.2#
+Luego realice la conexión correspondiente a mongoDB, colocando el localhost y el puerto en el cual esta trabajando mongoDB.
+
+Luego converti el dataframe a diccionario ya que así lo guardaría en mongoDB, luego procedi a colocar la base de datos a la que me conectaria.
+(En el codigo deje 2 maneras distintas de realizar este proceso ya que estaba aprendiendo como hacerlo de manera optima)
+
+Para concluir con la función collection.insert_many(data)inserte el dataframe convertido en diccionario de manera correcta en MongoDB y ese print me lo demostro.
+
+MongoDB 7#
+El resultado que me dio la consola significaba que mi inserción se hizo de manera correcta, por lo cual solo tocaba refrescar el mongoDB Compass para ver que todo salió bien.
+
+MongoDB 7.2#
+El resultado final, los datos del dataframe insertado en forma de diccionario en MongoDB, un proyecto bastante interesante.
+
+
+Librerias utilizadas:
+Pandas
+Pyodbc
+Pyarrow
+Redis
+Pickle
+
+Herramientas utilizadas:
+Jupyter Notebook
+Python
+SQL Server
+Ubuntu
+Redis
+MongoDB
